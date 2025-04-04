@@ -7,10 +7,11 @@ import StepFour from "./StepFour"; // Import StepFour
 
 const MultiStepForm = () => { 
   const [currentStep, setCurrentStep] = useState(0);
+  const [selectedPlan, setSelectedPlan] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
+    phone: "", 
   });
   const [errors, setErrors] = useState({}); // Track errors
 
@@ -21,6 +22,7 @@ const MultiStepForm = () => {
     if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = "Valid email is required";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    console.log(Object.keys(newErrors))
 
     setErrors(newErrors);
      // Focus on the first input with an error
@@ -42,26 +44,54 @@ const MultiStepForm = () => {
   const handlePrev = () => {
     setCurrentStep((prev) => prev - 1);
   }; 
+  
+
+  const pages = ["Your Info", "Select Plan", "Add-ons", "summary"]
 
 
-  const steps = [<StepOne formData={formData} setFormData={setFormData} errors={errors} />, <StepTwo />, <StepThree />, <StepFour />];
+  const steps = [<StepOne formData={formData} setFormData={setFormData} errors={errors} />, <StepTwo selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />, <StepThree />, <StepFour />,];
 
  
   return (
-    <div className="max-w-lg min-h-screen bg-Magnolia flex flex-col">
-      <StepIndicator currentStep={currentStep} steps={steps} />
+    <div className=" min-h-screen bg-Magnolia flex flex-col md:justify-center md:items-center ">
+      <div className="bg-none md:bg-white flex flex-col md:flex-row h-full md:rounded-lg  animate-fadeIn">
+       <StepIndicator currentStep={currentStep} steps={pages} />
 
+        {/*Display the step component  */}
+        <div className="-mt-20 md:mt-0 rounded-lg md:rounded-none p-6 md:p-2 mx-4 md:mx-20 bg-white shadow-md md:shadow-none">
+            {steps[currentStep]} 
 
-     {/*Display the step component  */}
-      <div className="-mt-20 rounded-lg p-6 mx-4 bg-white shadow-md">
-        {steps[currentStep]}
-      </div>
+            {/*Display the desktop buttons */}
+            <div className="mt-auto justify-between hidden md:flex mb-4">
+              {currentStep > 0 && (
+                <button
+                  className="font-medium text-CoolGray px-4 py-2 rounded-md"
+                  onClick={handlePrev}
+                >Go Back
+                </button>
+              )}
+              
+              {currentStep < steps.length - 1 ? (
+                <button
+                  className="bg-MarineBlue hover:bg-MarineBlue/80 font-medium text-Alabaster px-4 py-2 rounded-md ml-auto"
+                  onClick={handleNext}
+                >
+                  Next Step
+                </button>
+              ) : (
+                <button className="bg-red-600 text-white px-4 py-2 rounded-md ml-auto">
+                  Submit
+                </button>
+              )}
+            </div>
+        </div> 
+      </div>            
 
-        {/* step buttons */}
-      <div className="mt-auto flex justify-between bg-white p-5">
+        {/*mobile step buttons */}
+      <div className="mt-auto flex justify-between bg-white md:hidden p-5 ">
         {currentStep > 0 && (
           <button
-            className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md"
+            className="font-medium text-CoolGray px-4 py-2 rounded-md"
             onClick={handlePrev}
           >Go Back
           </button>

@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.step-one-input{
+ @apply px-4 py-2 w-full placeholder:font-medium border border-LightGray focus:outline-none focus:ring-1  rounded-md font-medium text-MarineBlue mb-3
+}
+
+body {
+ @apply font-ubuntu;
+}

@@ -1,7 +1,7 @@
 const StepIndicator = ({ currentStep, steps }) => {
  return (
   
-  <div className="bg-[url('/src/assets/images/bg-sidebar-mobile.svg')] md:bg-center md:bg-[url('/src/assets/images/bg-sidebar-desktop.svg')] bg-cover w-full md:w-64 md:rounded-md md:overflow-hidden h-48 md:h-auto   pt-2 font-ubuntu font-medium">   
+  <div className="bg-[url('/src/assets/images/bg-sidebar-mobile.svg')] md:bg-center md:bg-[url('/src/assets/images/bg-sidebar-desktop.svg')] bg-cover w-full md:w-[30%] md:rounded-md md:overflow-hidden h-48 md:h-auto  pt-2 font-ubuntu font-medium">   
 
    <div className="flex md:flex-col justify-center mt-8 gap-4 md:px-8">
      {steps.map((step, index) => (
@@ -9,7 +9,7 @@ const StepIndicator = ({ currentStep, steps }) => {
         <div
          key={index}
          className={`w-10 h-10 flex items-center justify-center rounded-full border-2 
-           ${index === currentStep ? "bg-LightBlue text-MarineBlue border-LightBlue" : "border-white text-white"}`
+           ${index === currentStep  ? "bg-LightBlue text-MarineBlue border-LightBlue" : "border-white text-white"}`
          }
        >
          {index + 1}

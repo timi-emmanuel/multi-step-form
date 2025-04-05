@@ -4,16 +4,19 @@ import StepOne from "./StepOne";
 import StepTwo from "./StepTwo"; // Import StepTwo
 import StepThree from "./StepThree"; // Import StepThree
 import StepFour from "./StepFour"; // Import StepFour
+import ThankYouPage from "./ThankYouPage";
 
 const MultiStepForm = () => { 
   const [currentStep, setCurrentStep] = useState(0);
-  const [selectedPlan, setSelectedPlan] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "", 
   });
   const [errors, setErrors] = useState({}); // Track errors
+  const [selectedPlan, setSelectedPlan] = useState({});
+  const [planError, setPlanError] = useState(false);
+  const [selectedAddons, setSelectedAddons] = useState([]);
 
   // Validate Step 1
   const validateStep1 = () => {
@@ -31,14 +34,23 @@ const MultiStepForm = () => {
     document.getElementById(firstErrorField)?.focus();
   }
 
-  return Object.keys(newErrors).length === 0; // Return true if no errors
+  return Object.keys(newErrors).length === 0; 
   };
 
+  
   const handleNext = () => {
     if (currentStep === 0) {
       if (!validateStep1()) return; // Show errors & prevent navigation if invalid
     }
-    setCurrentStep((prev) => prev + 1);
+   
+      if (currentStep === 1 && Object.keys(selectedPlan).length === 0) {
+        setPlanError(true); // Show visual error
+        return;
+      } else{
+        setPlanError(false);  
+      }
+         
+        setCurrentStep((prev) => prev + 1);
   };
 
   const handlePrev = () => {
@@ -49,12 +61,16 @@ const MultiStepForm = () => {
   const pages = ["Your Info", "Select Plan", "Add-ons", "summary"]
 
 
-  const steps = [<StepOne formData={formData} setFormData={setFormData} errors={errors} />, <StepTwo selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />, <StepThree />, <StepFour />,];
+  const steps = [<StepOne formData={formData} setFormData={setFormData} errors={errors} />, <StepTwo selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} planError={planError} setPlanError={setPlanError}  setSelectedAddons={setSelectedAddons}/>, <StepThree isYearly={selectedPlan.billingType === 'yearly'} selectedAddons={selectedAddons} setSelectedAddon= {setSelectedAddons}/>, <StepFour selectedPlan={selectedPlan} selectedAddons={selectedAddons} setCurrentStep={setCurrentStep}/>, <ThankYouPage/>];
+
+  const submitClick = () => {
+    setCurrentStep(4)
+  }
 
  
   return (
     <div className=" min-h-screen bg-Magnolia flex flex-col md:justify-center md:items-center ">
-      <div className="bg-none md:bg-white flex flex-col md:flex-row h-full md:rounded-lg  animate-fadeIn">
+      <div className="bg-none md:bg-white md:w-[55%] md:pl-3 md:py-3 flex flex-col md:flex-row h-full md:rounded-lg  animate-fadeIn">
        <StepIndicator currentStep={currentStep} steps={pages} />
 
         {/*Display the step component  */}
@@ -62,7 +78,7 @@ const MultiStepForm = () => {
             {steps[currentStep]} 
 
             {/*Display the desktop buttons */}
-            <div className="mt-auto justify-between hidden md:flex mb-4">
+            <div className={`mt-auto justify-between hidden  mb-4 ${currentStep === 4}? "hidden": "flex"` }>
               {currentStep > 0 && (
                 <button
                   className="font-medium text-CoolGray px-4 py-2 rounded-md"
@@ -88,7 +104,7 @@ const MultiStepForm = () => {
       </div>            
 
         {/*mobile step buttons */}
-      <div className="mt-auto flex justify-between bg-white md:hidden p-5 ">
+      <div className={`mt-auto justify-between bg-white md:hidden p-5 ${currentStep === 4 ? "hidden" : "flex"}`}>
         {currentStep > 0 && (
           <button
             className="font-medium text-CoolGray px-4 py-2 rounded-md"

@@ -30,7 +30,7 @@ const StepTwo = ({ selectedPlan, setSelectedPlan, planError, setPlanError, setSe
   };
 
   return (
-    <div className="pb-2 md:py-4">
+    <div className={`pb-2 md:py-4 animate-slideIn`}>
       <h2 className="text-2xl md:text-3xl font-bold text-MarineBlue">Select your plan</h2>
       <p className="text-CoolGray mt-2 md:text-sm mb-4 md:mb-8 max-w-[16rem] md:max-w-none">
         You have the option of monthly or yearly billing.
@@ -43,7 +43,7 @@ const StepTwo = ({ selectedPlan, setSelectedPlan, planError, setPlanError, setSe
         {plans[billingType].map((plan) => (
           <div
             key={plan.id}
-            className={`border flex-1 px-4 py-3 rounded-md cursor-pointer h-auto md:w-32 ${
+            className={`border flex-1 px-4 py-3 rounded-md cursor-pointer h-auto md:w-32 hover:border-PurplishBlue  ${
               planError ? "border-StrawberryRed" : selectedPlan.id === plan.id ? "border-PurplishBlue bg-Alabaster" : "border-LightGray"
             }`}
             onClick={() => handlePlanClick(plan)}

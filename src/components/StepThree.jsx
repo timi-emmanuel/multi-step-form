@@ -39,7 +39,7 @@ const StepThree = ({ isYearly, selectedAddons, setSelectedAddon }) => {
   };
 
   return (
-    <div className="md:mb-16 md:py-4">
+    <div className="md:mb-16 md:py-4 animate-slideIn">
       <h2 className="text-2xl md:text-3xl font-bold text-MarineBlue">Pick add-ons</h2>
       <p className="text-CoolGray mb-6 md:mt-2">Add-ons help enhance your gaming experience.</p>
 
@@ -49,7 +49,7 @@ const StepThree = ({ isYearly, selectedAddons, setSelectedAddon }) => {
           return (
             <label
               key={addon.name}
-              className={`flex items-center border md:w-[28rem] px-4 py-3 rounded-lg cursor-pointer ${
+              className={`flex items-center border md:w-[28rem] px-4 py-3 rounded-lg cursor-pointer hover:border-PurplishBlue ${
                 isChecked(addon.name) ? "border-PurplishBlue bg-Alabaster" : "border-LightGray"
               }`}
             >

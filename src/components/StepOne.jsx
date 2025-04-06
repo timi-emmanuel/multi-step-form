@@ -7,10 +7,10 @@ const StepOne = ({ formData, setFormData, errors }) => {
   }; 
     
  return (  
-  <div className="md:py-4 ">
+  <div className="md:py-4 animate-slideIn">
     <h2 className="text-2xl md:text-3xl font-bold text-MarineBlue">Personal info</h2>
     <p className=" mt-2 md:mt-1 mb-4  text-CoolGray  max-w-[16rem] md:max-w-[28rem] tracking-normal">Please provide your name, email address and phone number.</p>
-    <form action="" className="md:mb-16 w-full space-y-6"> 
+    <form className="md:mb-16 w-full space-y-6"> 
        {/* name*/}
       <div className="space-y-1">
         <div className="flex justify-between">
@@ -41,7 +41,7 @@ const StepOne = ({ formData, setFormData, errors }) => {
       type="email" 
       name= "email"
       placeholder="e.g. stephenking@lorem.com" 
-      className={`step-one-input  ${ errors.email ? "focus:ring-StrawberryRed" : "focus:ring-PurplishBlue"}}`}
+      className={`step-one-input  ${ errors.email ? "focus:ring-StrawberryRed" : "focus:ring-PurplishBlue"}`}
       value={formData.email}
       onChange={handleChange}
       />

@@ -3,24 +3,24 @@ const StepFour = ({selectedPlan, selectedAddons, setCurrentStep}) => {
    setCurrentStep(1)
   }
  return ( 
-  <div>
+  <div className="md:mb-16 md:py-4 animate-slideIn">
      <h2 className="text-2xl md:text-3xl font-bold text-MarineBlue">Finishing up</h2>
       <p className="text-CoolGray mt-2 md:text-sm mb-4 md:mb-8 max-w-[16rem] md:max-w-none">
         Double-check everything looks OK before confirming. 
       </p>
-      <div className="p-4 bg-Alabaster rounded-lg">
+      <div className="p-4 bg-Alabaster rounded-lg md:min-w-[28rem] ">
         <div className="border-b border-LightGray ">
            <div className="flex justify-between text-MarineBlue font-bold"> 
             <p className="capitalize  ">{selectedPlan.name} {`(${selectedPlan.billingType})`}</p>
             <p className="">${selectedPlan.price}/{selectedPlan.time}</p>
            </div>          
-          <a className="text-CoolGray cursor-pointer hover:underline" onClick={change}>change</a>
+          <a className="text-CoolGray cursor-pointer hover:underline hover:text-PurplishBlue" onClick={change}>change</a>
         </div>
         <div>
           {selectedAddons.map( addon => (
             <div className="flex justify-between mt-4 gap-1 text-CoolGray">
               <p>{addon.name}</p>
-              <p className="text-MarineBlue">+${addon.price}/${selectedPlan.time}</p>              
+              <p className="text-MarineBlue">+${addon.price}/{selectedPlan.time}</p>              
             </div>            
           ))}
         </div>

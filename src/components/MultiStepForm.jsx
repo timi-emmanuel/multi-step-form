@@ -74,37 +74,40 @@ const MultiStepForm = () => {
  
   return (
     <div className=" min-h-screen bg-Magnolia flex flex-col md:justify-center md:items-center ">
-      <div className="bg-none md:bg-white md:w-[55%] md:pl-3 md:py-3 flex flex-col md:flex-row h-full md:rounded-lg  animate-fadeIn">
+      <div className="bg-none md:bg-white md:w-[90%] lg:w-[70%] xl:w-[60%] lg:justify-between md:pl-3 md:py-3 flex flex-col md:flex-row md:rounded-lg   animate-fadeIn">
        <StepIndicator currentStep={currentStep === 4 ? 3: currentStep} steps={pages} />
 
         {/*Display the step component  */}
-        <div className="-mt-20 md:mt-0 rounded-lg md:rounded-none p-6 md:p-2 mx-4 md:mx-20 bg-white shadow-md md:shadow-none">
-            {steps[currentStep]} 
+        <div className="bg-red-80 md:mx-8 md:w-full flex justify-center">
+          <div className="-mt-20 md:mt-0 rounded-lg md:rounded-none p-6 md:p-2 mx-4 md:mx-0  bg-white shadow-md md:shadow-none">
+              {steps[currentStep]} 
 
-            {/*Display the desktop buttons */}
-            <div className={`mt-auto justify-between hidden  mb-4 ${currentStep === 4 ? "hidden" : "md:flex"}`}>
-              {currentStep > 0 &&(
-                <button
-                  className="font-medium text-CoolGray px-4 py-2 rounded-md hover:text-MarineBlue"
-                  onClick={handlePrev}
-                >Go Back
-                </button>
-              )}
-              
-              {currentStep < steps.length - 2 ? (
-                <button
-                  className="bg-MarineBlue hover:bg-MarineBlue/80 font-medium text-Alabaster px-4 py-2 rounded-md ml-auto"
-                  onClick={handleNext}
-                >
-                  Next Step
-                </button>
-              ) : (
-                <button className="bg-PurplishBlue text-white hover:bg-PurplishBlue/80 px-4 py-2 rounded-md ml-auto" onClick={submitClick}>
-                  Confirm
-                </button>
-              )}
-            </div>
-        </div> 
+              {/*Display the desktop buttons */}
+              <div className={`mt-auto justify-between hidden  mb-4 ${currentStep === 4 ? "hidden" : "md:flex"}`}>
+                {currentStep > 0 &&(
+                  <button
+                    className="font-medium text-CoolGray px-4 py-2 rounded-md hover:text-MarineBlue"
+                    onClick={handlePrev}
+                  >Go Back
+                  </button>
+                )}
+                
+                {currentStep < steps.length - 2 ? (
+                  <button
+                    className="bg-MarineBlue hover:bg-MarineBlue/80 font-medium text-Alabaster px-4 py-2 rounded-md ml-auto"
+                    onClick={handleNext}
+                  >
+                    Next Step
+                  </button>
+                ) : (
+                  <button className="bg-PurplishBlue text-white hover:bg-PurplishBlue/80 px-4 py-2 rounded-md ml-auto" onClick={submitClick}>
+                    Confirm
+                  </button>
+                )}
+              </div>
+          </div>          
+        </div>
+         
       </div>            
 
         {/*mobile step buttons */}

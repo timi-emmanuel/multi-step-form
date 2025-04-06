@@ -3,7 +3,7 @@ const StepFour = ({selectedPlan, selectedAddons, setCurrentStep}) => {
    setCurrentStep(1)
   }
  return ( 
-  <div className="md:mb-16 md:py-4 animate-slideIn">
+  <div className="md:mb-2 md:py-4 animate-slideIn">
      <h2 className="text-2xl md:text-3xl font-bold text-MarineBlue">Finishing up</h2>
       <p className="text-CoolGray mt-2 md:text-sm mb-4 md:mb-8 max-w-[16rem] md:max-w-none">
         Double-check everything looks OK before confirming. 

@@ -65,7 +65,7 @@ const StepTwo = ({ selectedPlan, setSelectedPlan, planError, setPlanError, setSe
       </div>
 
       {/* Billing Toggle */}
-      <div className="mt-6 md:mt-8 md:mb-16 flex items-center justify-center gap-5 bg-gray-100 p-2 rounded-md">
+      <div className="mt-6 md:mt-8 md:mb-8 flex items-center justify-center gap-5 bg-gray-100 p-2 rounded-md">
         <span className={`${billingType === "monthly" ? "font-medium text-MarineBlue" : "text-CoolGray"}`}>
           Monthly
         </span>

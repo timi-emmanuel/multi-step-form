@@ -36,11 +36,18 @@ A sleek and responsive multi-step form built with **React**, **Tailwind CSS**, a
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/multi-step-form.git
+git clone https://github.com/timi-emmanuel/multi-step-form.git
 cd multi-step-form
+```
+### 2.  Install Dependencies
+```bash
 npm install
+```
+### 3.  Run the Development Server
+```bash
 npm run dev
 ```
+Open http://localhost:5173 to view it in your browser.
 
 ## 🌐 Deployment (Vercel)
  To deploy on Vercel:
@@ -71,6 +78,3 @@ npm run dev
 ## 🙌 Acknowledgments
 This project was inspired by a Frontend Mentor challenge.
 Feel free to customize and enhance it further!
-
-🔗 Live Demo: [link](https://multi-step-form-navy-three.vercel.app/)
-📬 Author: [Name](Adekunle-Oluwatimilehin)

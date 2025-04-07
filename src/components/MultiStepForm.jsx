@@ -73,20 +73,20 @@ const MultiStepForm = () => {
 
  
   return (
-    <div className=" min-h-screen bg-Magnolia flex flex-col md:justify-center md:items-center ">
+    <div className=" h-screen bg-Magnolia flex flex-col md:justify-center md:items-center ">
       <div className="bg-none md:bg-white md:w-[90%] lg:w-[70%] xl:w-[60%] lg:justify-between md:pl-3 md:py-3 flex flex-col md:flex-row md:rounded-lg   animate-fadeIn">
        <StepIndicator currentStep={currentStep === 4 ? 3: currentStep} steps={pages} />
 
         {/*Display the step component  */}
-        <div className="bg-red-80 md:mx-8 md:w-full flex justify-center">
-          <div className="-mt-20 md:mt-0 rounded-lg md:rounded-none p-6 md:p-2 mx-4 md:mx-0  bg-white shadow-md md:shadow-none">
+        <div className="md:mx-8 md:w-full flex justify-center">
+          <div className="-mt-20 md:mt-0 rounded-lg md:rounded-none p-6 md:p-2 w-[90%] md:mx-0  bg-white shadow-md md:shadow-none">
               {steps[currentStep]} 
 
               {/*Display the desktop buttons */}
               <div className={`mt-auto justify-between hidden  mb-4 ${currentStep === 4 ? "hidden" : "md:flex"}`}>
                 {currentStep > 0 &&(
                   <button
-                    className="font-medium text-CoolGray px-4 py-2 rounded-md hover:text-MarineBlue"
+                    className="font-medium text-CoolGray rounded-md hover:text-MarineBlue"
                     onClick={handlePrev}
                   >Go Back
                   </button>
@@ -114,7 +114,7 @@ const MultiStepForm = () => {
       <div className={`mt-auto justify-between bg-white md:hidden p-5 ${currentStep === 4 ? "hidden" : "flex"}`}>
         {currentStep > 0 && (
           <button
-            className="font-medium text-CoolGray px-4 py-2  hover:text-MarineBlue"
+            className="font-medium text-CoolGray hover:text-MarineBlue"
             onClick={handlePrev}
           >Go Back
           </button>

@@ -53,9 +53,9 @@ const StepThree = ({ isYearly, selectedAddons, setSelectedAddon }) => {
                 isChecked(addon.name) ? "border-PurplishBlue bg-Alabaster" : "border-LightGray"
               }`}
             >
-              <input
+              <input                        
                 type="checkbox"
-                className="form-checkbox h-5 w-5 text-MarineBlue mr-4"
+                className="form-checkbox accent-PurplishBlue h-5 w-5 text-MarineBlue mr-4"
                 checked={isChecked(addon.name)}
                 onChange={() => handleCheckboxChange(addon)}
               />

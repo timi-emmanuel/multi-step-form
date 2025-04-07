@@ -13,9 +13,9 @@ const StepTwo = ({ selectedPlan, setSelectedPlan, planError, setPlanError, setSe
       { id: "pro", name: "Pro", price: 15, time: "mo", icon: proIcon },
     ],
     yearly: [
-      { id: "arcade", name: "Arcade", price: 90, time: "yr", icon: "/src/assets/images/icon-arcade.svg", bonus: "2 months free" },
-      { id: "advanced", name: "Advanced", price: 120, time: "yr", icon: "/src/assets/images/icon-advanced.svg", bonus: "2 months free" },
-      { id: "pro", name: "Pro", price: 150, time: "yr", icon: "/src/assets/images/icon-pro.svg", bonus: "2 months free" },
+      { id: "arcade", name: "Arcade", price: 90, time: "yr", icon: arcadeIcon, bonus: "2 months free" },
+      { id: "advanced", name: "Advanced", price: 120, time: "yr", icon: advancedIcon, bonus: "2 months free" },
+      { id: "pro", name: "Pro", price: 150, time: "yr", icon: proIcon, bonus: "2 months free" },
     ],
   };
 

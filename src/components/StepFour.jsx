@@ -8,7 +8,7 @@ const StepFour = ({selectedPlan, selectedAddons, setCurrentStep}) => {
       <p className="text-CoolGray mt-2 md:text-sm mb-4 md:mb-8 min-w-[16rem] md:max-w-none">
         Double-check everything looks OK before confirming. 
       </p>
-      <div className="p-4 bg-Alabaster rounded-lg md:min-w-[28rem] ">
+      <div className="p-4 bg-Alabaster rounded-lg">
         <div className="border-b border-LightGray ">
            <div className="flex justify-between text-MarineBlue font-bold"> 
             <p className="capitalize  ">{selectedPlan.name} {`(${selectedPlan.billingType})`}</p>

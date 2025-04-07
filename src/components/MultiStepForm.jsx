@@ -83,7 +83,7 @@ const MultiStepForm = () => {
               {steps[currentStep]} 
 
               {/*Display the desktop buttons */}
-              <div className={`mt-auto justify-between hidden  mb-4 ${currentStep === 4 ? "hidden" : "md:flex"}`}>
+              <div className={`mt-auto justify-between hidden mb-4 ${currentStep === 4 ? "hidden" : "md:flex"}`}>
                 {currentStep > 0 &&(
                   <button
                     className="font-medium text-CoolGray rounded-md hover:text-MarineBlue"

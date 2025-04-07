@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
+import arcadeIcon from "../assets/images/icon-arcade.svg"
+import advancedIcon from "../assets/images/icon-advanced.svg"
+import proIcon from "../assets/images/icon-pro.svg"
 
 const StepTwo = ({ selectedPlan, setSelectedPlan, planError, setPlanError, setSelectedAddons }) => {
   const [billingType, setBillingType] = useState(selectedPlan.billingType || "monthly");
 
   const plans = {
     monthly: [
-      { id: "arcade", name: "Arcade", price: 9, time: "mo", icon: "/src/assets/images/icon-arcade.svg" },
-      { id: "advanced", name: "Advanced", price: 12, time: "mo", icon: "/src/assets/images/icon-advanced.svg" },
-      { id: "pro", name: "Pro", price: 15, time: "mo", icon: "/src/assets/images/icon-pro.svg" },
+      { id: "arcade", name: "Arcade", price: 9, time: "mo", icon: arcadeIcon },
+      { id: "advanced", name: "Advanced", price: 12, time: "mo", icon: advancedIcon },
+      { id: "pro", name: "Pro", price: 15, time: "mo", icon: proIcon },
     ],
     yearly: [
       { id: "arcade", name: "Arcade", price: 90, time: "yr", icon: "/src/assets/images/icon-arcade.svg", bonus: "2 months free" },

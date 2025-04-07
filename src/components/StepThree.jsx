@@ -49,7 +49,7 @@ const StepThree = ({ isYearly, selectedAddons, setSelectedAddon }) => {
           return (
             <label
               key={addon.name}
-              className={`flex items-center border md:w-[28rem] px-4 py-3 rounded-lg cursor-pointer hover:border-PurplishBlue ${
+              className={`flex items-center border px-4 py-3 rounded-lg cursor-pointer hover:border-PurplishBlue ${
                 isChecked(addon.name) ? "border-PurplishBlue bg-Alabaster" : "border-LightGray"
               }`}
             >
